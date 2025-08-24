@@ -22,4 +22,3 @@ TTS 包的作者已经停止维护，且有许多报错，在 github 上找到�
 ```bash
 python3.10 -m uv pip add TTS
 ```
-# Bangu-backend
