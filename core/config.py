@@ -11,7 +11,7 @@ class Settings:
     # SQLALCHEMY_DATABASE_URL: str = "sqlite:///./sql_app.db" # Example for SQLite
     # SQLALCHEMY_DATABASE_URL: str = "postgresql://user:password@host:port/database" # Example for PostgreSQL
     # For Tortoise ORM, connection details are in TORTOISE_ORM, but you might have other DB related settings here.
-    supabase_url = os.getenv("SUPABASE_URL", None)  # 线上 Supabase
+    # supabase_url = os.getenv("SUPABASE_URL", None)  # 线上 Supabase
 
     # CORS
     BACKEND_CORS_ORIGINS = [
@@ -37,13 +37,12 @@ TORTOISE_ORM = {
                 "maxsize": 5,  # 连接池最大连接数
                 "charset": "utf8mb4",  # 字符集
             },
-        },
-        "supabase": settings.supabase_url,  # 线上 Supabase
+        }
     },
     "apps": {
         "models": {
             "models": ["aerich.models", "models.user", "models.voice"],  # 模型路径
-            "default_connection": "default" if settings.supabase_url else "supabase",
+            "default_connection": "default"
         }
     },
     "use_tz": False,  # 关闭时区支持
